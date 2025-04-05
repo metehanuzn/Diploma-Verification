@@ -54,7 +54,8 @@ contract UniversityRegistry {
     }
 
     // Bir adresin kayıtlı üniversite olup olmadığını kontrol eder
-    function isUniversity(address _addr) public view returns(bool) {
-        return universities[_addr].exists;
+    function isUniversity(address _addr) public view returns (bool, string memory) {
+        University memory uni = universities[_addr];
+        return (uni.exists, uni.name);
     }
 }

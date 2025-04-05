@@ -1,0 +1,3322 @@
+{
+  "contractName": "UniversityRegistry",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "universityAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "UniversityAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "universityAddress",
+          "type": "address"
+        }
+      ],
+      "name": "UniversityRevoked",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "universities",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "universityAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_universityAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        }
+      ],
+      "name": "addUniversity",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_universityAddress",
+          "type": "address"
+        }
+      ],
+      "name": "revokeUniversity",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_addr",
+          "type": "address"
+        }
+      ],
+      "name": "isUniversity",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"universityAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"UniversityAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"universityAddress\",\"type\":\"address\"}],\"name\":\"UniversityRevoked\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_universityAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"}],\"name\":\"addUniversity\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"}],\"name\":\"isUniversity\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_universityAddress\",\"type\":\"address\"}],\"name\":\"revokeUniversity\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"universities\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"universityAddress\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/UniversityRegistry.sol\":\"UniversityRegistry\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/UniversityRegistry.sol\":{\"keccak256\":\"0x6fe502ba14942681652ea4ea751efd14bf2a0716a08f7469f69ebc3c85905e55\",\"urls\":[\"bzz-raw://5077b96dfb90a9b0657877d122062253cc60fbfaadf09944ee9bf6ddb8150b69\",\"dweb:/ipfs/QmPAQF9MwEJAahbvs2Vexs6QxSLVSMfzy2R45FN9HcajiX\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b0319163317905561079c806100326000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80638da5cb5b1461005c578063a908dc6214610080578063b9730cde14610138578063e4ee875514610172578063f099556014610198575b600080fd5b61006461025a565b604080516001600160a01b039092168252519081900360200190f35b6101366004803603604081101561009657600080fd5b6001600160a01b0382351691908101906040810160208201356401000000008111156100c157600080fd5b8201836020820111156100d357600080fd5b803590602001918460018302840111640100000000831117156100f557600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929550610269945050505050565b005b61015e6004803603602081101561014e57600080fd5b50356001600160a01b031661044e565b604080519115158252519081900360200190f35b6101366004803603602081101561018857600080fd5b50356001600160a01b0316610477565b6101be600480360360208110156101ae57600080fd5b50356001600160a01b03166105a4565b6040518080602001846001600160a01b03166001600160a01b0316815260200183151515158152602001828103825285818151815260200191508051906020019080838360005b8381101561021d578181015183820152602001610205565b50505050905090810190601f16801561024a5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b6000546001600160a01b031681565b6000546001600160a01b031633146102b25760405162461bcd60e51b815260040180806020018281038252602981526020018061073f6029913960400191505060405180910390fd5b6001600160a01b03821660009081526001602081905260409091200154600160a01b900460ff161561032b576040805162461bcd60e51b815260206004820152601860248201527f556e6976657273697465207a6174656e206b617969746c690000000000000000604482015290519081900360640190fd5b604080516060810182528281526001600160a01b03841660208083018290526001838501819052600092835281529290208151805192939192610371928492019061065c565b5060208281015160019290920180546040948501516001600160a01b03199091166001600160a01b039485161760ff60a01b1916600160a01b9115159190910217905582518181528451818301528451928616937fec1e06e5bcd47cc0ab9791be5856f0e0bab5a2be711f3f3fd979d4c694c7c1f993869383928301919085019080838360005b838110156104105781810151838201526020016103f8565b50505050905090810190601f16801561043d5780820380516001836020036101000a031916815260200191505b509250505060405180910390a25050565b6001600160a01b031660009081526001602081905260409091200154600160a01b900460ff1690565b6000546001600160a01b031633146104c05760405162461bcd60e51b815260040180806020018281038252602981526020018061073f6029913960400191505060405180910390fd5b6001600160a01b03811660009081526001602081905260409091200154600160a01b900460ff16610538576040805162461bcd60e51b815260206004820152601860248201527f556e6976657273697465206b617969746c6920646567696c0000000000000000604482015290519081900360640190fd5b6001600160a01b03811660009081526001602052604081209061055b82826106da565b5060010180546001600160a81b03191690556040516001600160a01b038216907f13ac9aa2c7e4f68cb10b8d7ba445383b32e9d48311cba0e322f9f932ad8872b990600090a250565b60016020818152600092835260409283902080548451600294821615610100026000190190911693909304601f81018390048302840183019094528383529283918301828280156106365780601f1061060b57610100808354040283529160200191610636565b820191906000526020600020905b81548152906001019060200180831161061957829003601f168201915b505050600190930154919250506001600160a01b0381169060ff600160a01b9091041683565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061069d57805160ff19168380011785556106ca565b828001600101855582156106ca579182015b828111156106ca5782518255916020019190600101906106af565b506106d6929150610721565b5090565b50805460018160011615610100020316600290046000825580601f10610700575061071e565b601f01602090049060005260206000209081019061071e9190610721565b50565b61073b91905b808211156106d65760008155600101610727565b9056fe536164656365206b6f6e74726174207361686962692062752069736c656d69207961706162696c6972a265627a7a723158207d3a4516f888dc4918352b5d52841af77a874b47286b34146e5f596367fde1a364736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c80638da5cb5b1461005c578063a908dc6214610080578063b9730cde14610138578063e4ee875514610172578063f099556014610198575b600080fd5b61006461025a565b604080516001600160a01b039092168252519081900360200190f35b6101366004803603604081101561009657600080fd5b6001600160a01b0382351691908101906040810160208201356401000000008111156100c157600080fd5b8201836020820111156100d357600080fd5b803590602001918460018302840111640100000000831117156100f557600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929550610269945050505050565b005b61015e6004803603602081101561014e57600080fd5b50356001600160a01b031661044e565b604080519115158252519081900360200190f35b6101366004803603602081101561018857600080fd5b50356001600160a01b0316610477565b6101be600480360360208110156101ae57600080fd5b50356001600160a01b03166105a4565b6040518080602001846001600160a01b03166001600160a01b0316815260200183151515158152602001828103825285818151815260200191508051906020019080838360005b8381101561021d578181015183820152602001610205565b50505050905090810190601f16801561024a5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b6000546001600160a01b031681565b6000546001600160a01b031633146102b25760405162461bcd60e51b815260040180806020018281038252602981526020018061073f6029913960400191505060405180910390fd5b6001600160a01b03821660009081526001602081905260409091200154600160a01b900460ff161561032b576040805162461bcd60e51b815260206004820152601860248201527f556e6976657273697465207a6174656e206b617969746c690000000000000000604482015290519081900360640190fd5b604080516060810182528281526001600160a01b03841660208083018290526001838501819052600092835281529290208151805192939192610371928492019061065c565b5060208281015160019290920180546040948501516001600160a01b03199091166001600160a01b039485161760ff60a01b1916600160a01b9115159190910217905582518181528451818301528451928616937fec1e06e5bcd47cc0ab9791be5856f0e0bab5a2be711f3f3fd979d4c694c7c1f993869383928301919085019080838360005b838110156104105781810151838201526020016103f8565b50505050905090810190601f16801561043d5780820380516001836020036101000a031916815260200191505b509250505060405180910390a25050565b6001600160a01b031660009081526001602081905260409091200154600160a01b900460ff1690565b6000546001600160a01b031633146104c05760405162461bcd60e51b815260040180806020018281038252602981526020018061073f6029913960400191505060405180910390fd5b6001600160a01b03811660009081526001602081905260409091200154600160a01b900460ff16610538576040805162461bcd60e51b815260206004820152601860248201527f556e6976657273697465206b617969746c6920646567696c0000000000000000604482015290519081900360640190fd5b6001600160a01b03811660009081526001602052604081209061055b82826106da565b5060010180546001600160a81b03191690556040516001600160a01b038216907f13ac9aa2c7e4f68cb10b8d7ba445383b32e9d48311cba0e322f9f932ad8872b990600090a250565b60016020818152600092835260409283902080548451600294821615610100026000190190911693909304601f81018390048302840183019094528383529283918301828280156106365780601f1061060b57610100808354040283529160200191610636565b820191906000526020600020905b81548152906001019060200180831161061957829003601f168201915b505050600190930154919250506001600160a01b0381169060ff600160a01b9091041683565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061069d57805160ff19168380011785556106ca565b828001600101855582156106ca579182015b828111156106ca5782518255916020019190600101906106af565b506106d6929150610721565b5090565b50805460018160011615610100020316600290046000825580601f10610700575061071e565b601f01602090049060005260206000209081019061071e9190610721565b50565b61073b91905b808211156106d65760008155600101610727565b9056fe536164656365206b6f6e74726174207361686962692062752069736c656d69207961706162696c6972a265627a7a723158207d3a4516f888dc4918352b5d52841af77a874b47286b34146e5f596367fde1a364736f6c63430005100032",
+  "sourceMap": "242:1901:2:-;;;865:58;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;897:5:2;:18;;-1:-1:-1;;;;;;897:18:2;905:10;897:18;;;242:1901;;;;;;",
+  "deployedSourceMap": "242:1901:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;242:1901:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;300:20;;;:::i;:::-;;;;-1:-1:-1;;;;;300:20:2;;;;;;;;;;;;;;1181:417;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;;;;;1181:417:2;;;;;;;;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;1181:417:2;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;1181:417:2;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;1181:417:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;1181:417:2;;-1:-1:-1;1181:417:2;;-1:-1:-1;;;;;1181:417:2:i;:::-;;2025:115;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;2025:115:2;-1:-1:-1;;;;;2025:115:2;;:::i;:::-;;;;;;;;;;;;;;;;;;1673:269;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1673:269:2;-1:-1:-1;;;;;1673:269:2;;:::i;554:50::-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;554:50:2;-1:-1:-1;;;;;554:50:2;;:::i;:::-;;;;;;;;-1:-1:-1;;;;;554:50:2;-1:-1:-1;;;;;554:50:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;554:50:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;300:20;;;-1:-1:-1;;;;;300:20:2;;:::o;1181:417::-;1055:5;;-1:-1:-1;;;;;1055:5:2;1041:10;:19;1033:73;;;;-1:-1:-1;;;1033:73:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1290:32:2;;;;;;:12;:32;;;;;;;;:39;;-1:-1:-1;;;1290:39:2;;;;1289:40;1281:77;;;;;-1:-1:-1;;;1281:77:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;1404:128;;;;;;;;;;;-1:-1:-1;;;;;1404:128:2;;;;;;;;;1516:4;1404:128;;;;;;-1:-1:-1;1369:32:2;;;;;;;;:163;;;;1404:128;;1369:32;;:163;;:32;;:163;;;:::i;:::-;-1:-1:-1;1369:163:2;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;1369:163:2;;;-1:-1:-1;;;;;1369:163:2;;;;-1:-1:-1;;;;1369:163:2;-1:-1:-1;;;1369:163:2;;;;;;;;;;1548:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;1548:42:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1181:417;;:::o;2025:115::-;-1:-1:-1;;;;;2106:19:2;2082:4;2106:19;;;:12;:19;;;;;;;;:26;;-1:-1:-1;;;2106:26:2;;;;;2025:115::o;1673:269::-;1055:5;;-1:-1:-1;;;;;1055:5:2;1041:10;:19;1033:73;;;;-1:-1:-1;;;1033:73:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1763:32:2;;;;;;:12;:32;;;;;;;;:39;;-1:-1:-1;;;1763:39:2;;;;1755:76;;;;;-1:-1:-1;;;1755:76:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1849:32:2;;;;;;:12;:32;;;;;;1842:39;1849:32;;1842:39;:::i;:::-;-1:-1:-1;1842:39:2;;;;-1:-1:-1;;;;;;1842:39:2;;;1897:37;;-1:-1:-1;;;;;1897:37:2;;;;;1842:39;;1897:37;1673:269;:::o;554:50::-;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;554:50:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;554:50:2;;;;;;;-1:-1:-1;;;;;;;554:50:2;;;;-1:-1:-1;;;554:50:2;;;;;:::o;242:1901::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;242:1901:2;;;-1:-1:-1;242:1901:2;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\n/*\r\n    Üniversite Kayıt Kontratı:\r\n    - Bu kontrat, sistemde üniversitelerin kaydını tutar.\r\n    - Sadece kontrat sahibi (deploy eden) üniversite ekleyebilir.\r\n*/\r\ncontract UniversityRegistry {\r\n    // Kontrat sahibi\r\n    address public owner;\r\n    \r\n    // Üniversite bilgilerini tutan yapı\r\n    struct University {\r\n        string name;\r\n        address universityAddress;\r\n        bool exists;\r\n    }\r\n    \r\n    // Üniversiteleri adreslerine göre saklayan mapping\r\n    mapping(address => University) public universities;\r\n    \r\n    // Üniversite ekleme eventi\r\n    event UniversityAdded(address indexed universityAddress, string name);\r\n    event UniversityRevoked(address indexed universityAddress);\r\n    \r\n    // Kontrat deploy edildiğinde deploy eden kişi sahibi olur.\r\n    constructor() public {\r\n        owner = msg.sender;\r\n    }\r\n    \r\n    // Sadece kontrat sahibinin işlem yapabilmesi için modifier\r\n    modifier onlyOwner(){\r\n        require(msg.sender == owner, \"Sadece kontrat sahibi bu islemi yapabilir\");\r\n        _;\r\n    }\r\n    \r\n    // Yeni üniversite ekleme fonksiyonu\r\n    function addUniversity(address _universityAddress, string memory _name) public onlyOwner {\r\n        require(!universities[_universityAddress].exists, \"Universite zaten kayitli\");\r\n        universities[_universityAddress] = University({\r\n            name: _name,\r\n            universityAddress: _universityAddress,\r\n            exists: true\r\n        });\r\n        emit UniversityAdded(_universityAddress, _name);\r\n    }\r\n    \r\n    // Kayıtlı üniversiteyi sistemden kaldırma fonksiyonu\r\n    function revokeUniversity(address _universityAddress) public onlyOwner {\r\n        require(universities[_universityAddress].exists, \"Universite kayitli degil\");\r\n        delete universities[_universityAddress];\r\n        emit UniversityRevoked(_universityAddress);\r\n    }\r\n\r\n    // Bir adresin kayıtlı üniversite olup olmadığını kontrol eder\r\n    function isUniversity(address _addr) public view returns(bool) {\r\n        return universities[_addr].exists;\r\n    }\r\n}\r\n",
+  "sourcePath": "C:\\Users\\Said\\Desktop\\Bitirme Projesi\\contracts\\UniversityRegistry.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/UniversityRegistry.sol",
+    "exportedSymbols": {
+      "UniversityRegistry": [
+        311
+      ]
+    },
+    "id": 312,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 194,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:32:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 311,
+        "linearizedBaseContracts": [
+          311
+        ],
+        "name": "UniversityRegistry",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 196,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 311,
+            "src": "300:20:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 195,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "300:7:2",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "UniversityRegistry.University",
+            "id": 203,
+            "members": [
+              {
+                "constant": false,
+                "id": 198,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 203,
+                "src": "406:11:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 197,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "406:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 200,
+                "name": "universityAddress",
+                "nodeType": "VariableDeclaration",
+                "scope": 203,
+                "src": "428:25:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 199,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "428:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 202,
+                "name": "exists",
+                "nodeType": "VariableDeclaration",
+                "scope": 203,
+                "src": "464:11:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 201,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "464:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "University",
+            "nodeType": "StructDefinition",
+            "scope": 311,
+            "src": "377:106:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 207,
+            "name": "universities",
+            "nodeType": "VariableDeclaration",
+            "scope": 311,
+            "src": "554:50:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_University_$203_storage_$",
+              "typeString": "mapping(address => struct UniversityRegistry.University)"
+            },
+            "typeName": {
+              "id": 206,
+              "keyType": {
+                "id": 204,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "562:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "554:30:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_University_$203_storage_$",
+                "typeString": "mapping(address => struct UniversityRegistry.University)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 205,
+                "name": "University",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 203,
+                "src": "573:10:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_University_$203_storage_ptr",
+                  "typeString": "struct UniversityRegistry.University"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 213,
+            "name": "UniversityAdded",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 212,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 209,
+                  "indexed": true,
+                  "name": "universityAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 213,
+                  "src": "673:33:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 208,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "673:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 211,
+                  "indexed": false,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 213,
+                  "src": "708:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 210,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "708:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "672:48:2"
+            },
+            "src": "651:70:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 217,
+            "name": "UniversityRevoked",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 216,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 215,
+                  "indexed": true,
+                  "name": "universityAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 217,
+                  "src": "751:33:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 214,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "751:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "750:35:2"
+            },
+            "src": "727:59:2"
+          },
+          {
+            "body": {
+              "id": 225,
+              "nodeType": "Block",
+              "src": "886:37:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 223,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 220,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 196,
+                      "src": "897:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 221,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 326,
+                        "src": "905:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 222,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "905:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "897:18:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 224,
+                  "nodeType": "ExpressionStatement",
+                  "src": "897:18:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 226,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 218,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "876:2:2"
+            },
+            "returnParameters": {
+              "id": 219,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "886:0:2"
+            },
+            "scope": 311,
+            "src": "865:58:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 237,
+              "nodeType": "Block",
+              "src": "1022:104:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 232,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 229,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 326,
+                            "src": "1041:3:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 230,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1041:10:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 231,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 196,
+                          "src": "1055:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "1041:19:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "536164656365206b6f6e74726174207361686962692062752069736c656d69207961706162696c6972",
+                        "id": 233,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1062:43:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_05340ce6bdebfa96d6bdb4787fa80e18b4faf59f768098fa41ff8bab6a312b65",
+                          "typeString": "literal_string \"Sadece kontrat sahibi bu islemi yapabilir\""
+                        },
+                        "value": "Sadece kontrat sahibi bu islemi yapabilir"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_05340ce6bdebfa96d6bdb4787fa80e18b4faf59f768098fa41ff8bab6a312b65",
+                          "typeString": "literal_string \"Sadece kontrat sahibi bu islemi yapabilir\""
+                        }
+                      ],
+                      "id": 228,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        329,
+                        330
+                      ],
+                      "referencedDeclaration": 330,
+                      "src": "1033:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 234,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1033:73:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 235,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1033:73:2"
+                },
+                {
+                  "id": 236,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "1117:1:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 238,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 227,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1020:2:2"
+            },
+            "src": "1002:124:2",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 271,
+              "nodeType": "Block",
+              "src": "1270:328:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 252,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "UnaryOperation",
+                        "operator": "!",
+                        "prefix": true,
+                        "src": "1289:40:2",
+                        "subExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 248,
+                              "name": "universities",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 207,
+                              "src": "1290:12:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_University_$203_storage_$",
+                                "typeString": "mapping(address => struct UniversityRegistry.University storage ref)"
+                              }
+                            },
+                            "id": 250,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 249,
+                              "name": "_universityAddress",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 240,
+                              "src": "1303:18:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "1290:32:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_University_$203_storage",
+                              "typeString": "struct UniversityRegistry.University storage ref"
+                            }
+                          },
+                          "id": 251,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "exists",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 202,
+                          "src": "1290:39:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "556e6976657273697465207a6174656e206b617969746c69",
+                        "id": 253,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1331:26:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_27feaa00c255ec64851e06bd0d1808c2c2ce4c1e232e93ca7126312500a70799",
+                          "typeString": "literal_string \"Universite zaten kayitli\""
+                        },
+                        "value": "Universite zaten kayitli"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_27feaa00c255ec64851e06bd0d1808c2c2ce4c1e232e93ca7126312500a70799",
+                          "typeString": "literal_string \"Universite zaten kayitli\""
+                        }
+                      ],
+                      "id": 247,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        329,
+                        330
+                      ],
+                      "referencedDeclaration": 330,
+                      "src": "1281:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 254,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1281:77:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 255,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1281:77:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 264,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 256,
+                        "name": "universities",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 207,
+                        "src": "1369:12:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_University_$203_storage_$",
+                          "typeString": "mapping(address => struct UniversityRegistry.University storage ref)"
+                        }
+                      },
+                      "id": 258,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 257,
+                        "name": "_universityAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 240,
+                        "src": "1382:18:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1369:32:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_University_$203_storage",
+                        "typeString": "struct UniversityRegistry.University storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 260,
+                          "name": "_name",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 242,
+                          "src": "1436:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 261,
+                          "name": "_universityAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 240,
+                          "src": "1475:18:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "74727565",
+                          "id": 262,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1516:4:2",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        ],
+                        "id": 259,
+                        "name": "University",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 203,
+                        "src": "1404:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_University_$203_storage_ptr_$",
+                          "typeString": "type(struct UniversityRegistry.University storage pointer)"
+                        }
+                      },
+                      "id": 263,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [
+                        "name",
+                        "universityAddress",
+                        "exists"
+                      ],
+                      "nodeType": "FunctionCall",
+                      "src": "1404:128:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_University_$203_memory",
+                        "typeString": "struct UniversityRegistry.University memory"
+                      }
+                    },
+                    "src": "1369:163:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_University_$203_storage",
+                      "typeString": "struct UniversityRegistry.University storage ref"
+                    }
+                  },
+                  "id": 265,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1369:163:2"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 267,
+                        "name": "_universityAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 240,
+                        "src": "1564:18:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 268,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 242,
+                        "src": "1584:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 266,
+                      "name": "UniversityAdded",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 213,
+                      "src": "1548:15:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (address,string memory)"
+                      }
+                    },
+                    "id": 269,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1548:42:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 270,
+                  "nodeType": "EmitStatement",
+                  "src": "1543:47:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 272,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 245,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 244,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 238,
+                  "src": "1260:9:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1260:9:2"
+              }
+            ],
+            "name": "addUniversity",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 243,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 240,
+                  "name": "_universityAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 272,
+                  "src": "1204:26:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 239,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1204:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 242,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 272,
+                  "src": "1232:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 241,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1232:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1203:49:2"
+            },
+            "returnParameters": {
+              "id": 246,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1270:0:2"
+            },
+            "scope": 311,
+            "src": "1181:417:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 296,
+              "nodeType": "Block",
+              "src": "1744:198:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 280,
+                            "name": "universities",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 207,
+                            "src": "1763:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_University_$203_storage_$",
+                              "typeString": "mapping(address => struct UniversityRegistry.University storage ref)"
+                            }
+                          },
+                          "id": 282,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 281,
+                            "name": "_universityAddress",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 274,
+                            "src": "1776:18:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1763:32:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_University_$203_storage",
+                            "typeString": "struct UniversityRegistry.University storage ref"
+                          }
+                        },
+                        "id": 283,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "exists",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 202,
+                        "src": "1763:39:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "556e6976657273697465206b617969746c6920646567696c",
+                        "id": 284,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1804:26:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_075ca72d95468e6b64ef8adbaa7f54305b15973df062f08073bc9e7a632a4c53",
+                          "typeString": "literal_string \"Universite kayitli degil\""
+                        },
+                        "value": "Universite kayitli degil"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_075ca72d95468e6b64ef8adbaa7f54305b15973df062f08073bc9e7a632a4c53",
+                          "typeString": "literal_string \"Universite kayitli degil\""
+                        }
+                      ],
+                      "id": 279,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        329,
+                        330
+                      ],
+                      "referencedDeclaration": 330,
+                      "src": "1755:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 285,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1755:76:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 286,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1755:76:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 290,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "delete",
+                    "prefix": true,
+                    "src": "1842:39:2",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 287,
+                        "name": "universities",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 207,
+                        "src": "1849:12:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_University_$203_storage_$",
+                          "typeString": "mapping(address => struct UniversityRegistry.University storage ref)"
+                        }
+                      },
+                      "id": 289,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 288,
+                        "name": "_universityAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 274,
+                        "src": "1862:18:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1849:32:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_University_$203_storage",
+                        "typeString": "struct UniversityRegistry.University storage ref"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 291,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1842:39:2"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 293,
+                        "name": "_universityAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 274,
+                        "src": "1915:18:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 292,
+                      "name": "UniversityRevoked",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 217,
+                      "src": "1897:17:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 294,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1897:37:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 295,
+                  "nodeType": "EmitStatement",
+                  "src": "1892:42:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 297,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 277,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 276,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 238,
+                  "src": "1734:9:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1734:9:2"
+              }
+            ],
+            "name": "revokeUniversity",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 275,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 274,
+                  "name": "_universityAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 297,
+                  "src": "1699:26:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 273,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1699:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1698:28:2"
+            },
+            "returnParameters": {
+              "id": 278,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1744:0:2"
+            },
+            "scope": 311,
+            "src": "1673:269:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 309,
+              "nodeType": "Block",
+              "src": "2088:52:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 304,
+                        "name": "universities",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 207,
+                        "src": "2106:12:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_University_$203_storage_$",
+                          "typeString": "mapping(address => struct UniversityRegistry.University storage ref)"
+                        }
+                      },
+                      "id": 306,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 305,
+                        "name": "_addr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 299,
+                        "src": "2119:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "2106:19:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_University_$203_storage",
+                        "typeString": "struct UniversityRegistry.University storage ref"
+                      }
+                    },
+                    "id": 307,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "exists",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 202,
+                    "src": "2106:26:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 303,
+                  "id": 308,
+                  "nodeType": "Return",
+                  "src": "2099:33:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 310,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isUniversity",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 300,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 299,
+                  "name": "_addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 310,
+                  "src": "2047:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 298,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2047:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2046:15:2"
+            },
+            "returnParameters": {
+              "id": 303,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 302,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 310,
+                  "src": "2082:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 301,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2082:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2081:6:2"
+            },
+            "scope": 311,
+            "src": "2025:115:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 312,
+        "src": "242:1901:2"
+      }
+    ],
+    "src": "33:2112:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/UniversityRegistry.sol",
+      "exportedSymbols": {
+        "UniversityRegistry": [
+          311
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 194,
+        "name": "PragmaDirective",
+        "src": "33:32:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            311
+          ],
+          "name": "UniversityRegistry",
+          "scope": 312
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "owner",
+              "scope": 311,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "stateMutability": "nonpayable",
+                  "type": "address"
+                },
+                "id": 195,
+                "name": "ElementaryTypeName",
+                "src": "300:7:2"
+              }
+            ],
+            "id": 196,
+            "name": "VariableDeclaration",
+            "src": "300:20:2"
+          },
+          {
+            "attributes": {
+              "canonicalName": "UniversityRegistry.University",
+              "name": "University",
+              "scope": 311,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "name",
+                  "scope": 203,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 197,
+                    "name": "ElementaryTypeName",
+                    "src": "406:6:2"
+                  }
+                ],
+                "id": 198,
+                "name": "VariableDeclaration",
+                "src": "406:11:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "universityAddress",
+                  "scope": 203,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 199,
+                    "name": "ElementaryTypeName",
+                    "src": "428:7:2"
+                  }
+                ],
+                "id": 200,
+                "name": "VariableDeclaration",
+                "src": "428:25:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "exists",
+                  "scope": 203,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 201,
+                    "name": "ElementaryTypeName",
+                    "src": "464:4:2"
+                  }
+                ],
+                "id": 202,
+                "name": "VariableDeclaration",
+                "src": "464:11:2"
+              }
+            ],
+            "id": 203,
+            "name": "StructDefinition",
+            "src": "377:106:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "universities",
+              "scope": 311,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct UniversityRegistry.University)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct UniversityRegistry.University)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 204,
+                    "name": "ElementaryTypeName",
+                    "src": "562:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "University",
+                      "referencedDeclaration": 203,
+                      "type": "struct UniversityRegistry.University"
+                    },
+                    "id": 205,
+                    "name": "UserDefinedTypeName",
+                    "src": "573:10:2"
+                  }
+                ],
+                "id": 206,
+                "name": "Mapping",
+                "src": "554:30:2"
+              }
+            ],
+            "id": 207,
+            "name": "VariableDeclaration",
+            "src": "554:50:2"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "UniversityAdded"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "name": "universityAddress",
+                      "scope": 213,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 208,
+                        "name": "ElementaryTypeName",
+                        "src": "673:7:2"
+                      }
+                    ],
+                    "id": 209,
+                    "name": "VariableDeclaration",
+                    "src": "673:33:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "name",
+                      "scope": 213,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 210,
+                        "name": "ElementaryTypeName",
+                        "src": "708:6:2"
+                      }
+                    ],
+                    "id": 211,
+                    "name": "VariableDeclaration",
+                    "src": "708:11:2"
+                  }
+                ],
+                "id": 212,
+                "name": "ParameterList",
+                "src": "672:48:2"
+              }
+            ],
+            "id": 213,
+            "name": "EventDefinition",
+            "src": "651:70:2"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "UniversityRevoked"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "name": "universityAddress",
+                      "scope": 217,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 214,
+                        "name": "ElementaryTypeName",
+                        "src": "751:7:2"
+                      }
+                    ],
+                    "id": 215,
+                    "name": "VariableDeclaration",
+                    "src": "751:33:2"
+                  }
+                ],
+                "id": 216,
+                "name": "ParameterList",
+                "src": "750:35:2"
+              }
+            ],
+            "id": 217,
+            "name": "EventDefinition",
+            "src": "727:59:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 311,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 218,
+                "name": "ParameterList",
+                "src": "876:2:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 219,
+                "name": "ParameterList",
+                "src": "886:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 196,
+                              "type": "address",
+                              "value": "owner"
+                            },
+                            "id": 220,
+                            "name": "Identifier",
+                            "src": "897:5:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 326,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 221,
+                                "name": "Identifier",
+                                "src": "905:3:2"
+                              }
+                            ],
+                            "id": 222,
+                            "name": "MemberAccess",
+                            "src": "905:10:2"
+                          }
+                        ],
+                        "id": 223,
+                        "name": "Assignment",
+                        "src": "897:18:2"
+                      }
+                    ],
+                    "id": 224,
+                    "name": "ExpressionStatement",
+                    "src": "897:18:2"
+                  }
+                ],
+                "id": 225,
+                "name": "Block",
+                "src": "886:37:2"
+              }
+            ],
+            "id": 226,
+            "name": "FunctionDefinition",
+            "src": "865:58:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "onlyOwner",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 227,
+                "name": "ParameterList",
+                "src": "1020:2:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_05340ce6bdebfa96d6bdb4787fa80e18b4faf59f768098fa41ff8bab6a312b65",
+                                  "typeString": "literal_string \"Sadece kontrat sahibi bu islemi yapabilir\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                329,
+                                330
+                              ],
+                              "referencedDeclaration": 330,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 228,
+                            "name": "Identifier",
+                            "src": "1033:7:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 326,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 229,
+                                    "name": "Identifier",
+                                    "src": "1041:3:2"
+                                  }
+                                ],
+                                "id": 230,
+                                "name": "MemberAccess",
+                                "src": "1041:10:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 196,
+                                  "type": "address",
+                                  "value": "owner"
+                                },
+                                "id": 231,
+                                "name": "Identifier",
+                                "src": "1055:5:2"
+                              }
+                            ],
+                            "id": 232,
+                            "name": "BinaryOperation",
+                            "src": "1041:19:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "536164656365206b6f6e74726174207361686962692062752069736c656d69207961706162696c6972",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Sadece kontrat sahibi bu islemi yapabilir\"",
+                              "value": "Sadece kontrat sahibi bu islemi yapabilir"
+                            },
+                            "id": 233,
+                            "name": "Literal",
+                            "src": "1062:43:2"
+                          }
+                        ],
+                        "id": 234,
+                        "name": "FunctionCall",
+                        "src": "1033:73:2"
+                      }
+                    ],
+                    "id": 235,
+                    "name": "ExpressionStatement",
+                    "src": "1033:73:2"
+                  },
+                  {
+                    "id": 236,
+                    "name": "PlaceholderStatement",
+                    "src": "1117:1:2"
+                  }
+                ],
+                "id": 237,
+                "name": "Block",
+                "src": "1022:104:2"
+              }
+            ],
+            "id": 238,
+            "name": "ModifierDefinition",
+            "src": "1002:124:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "addUniversity",
+              "scope": 311,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_universityAddress",
+                      "scope": 272,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 239,
+                        "name": "ElementaryTypeName",
+                        "src": "1204:7:2"
+                      }
+                    ],
+                    "id": 240,
+                    "name": "VariableDeclaration",
+                    "src": "1204:26:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_name",
+                      "scope": 272,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 241,
+                        "name": "ElementaryTypeName",
+                        "src": "1232:6:2"
+                      }
+                    ],
+                    "id": 242,
+                    "name": "VariableDeclaration",
+                    "src": "1232:19:2"
+                  }
+                ],
+                "id": 243,
+                "name": "ParameterList",
+                "src": "1203:49:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 246,
+                "name": "ParameterList",
+                "src": "1270:0:2"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 238,
+                      "type": "modifier ()",
+                      "value": "onlyOwner"
+                    },
+                    "id": 244,
+                    "name": "Identifier",
+                    "src": "1260:9:2"
+                  }
+                ],
+                "id": 245,
+                "name": "ModifierInvocation",
+                "src": "1260:9:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_27feaa00c255ec64851e06bd0d1808c2c2ce4c1e232e93ca7126312500a70799",
+                                  "typeString": "literal_string \"Universite zaten kayitli\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                329,
+                                330
+                              ],
+                              "referencedDeclaration": 330,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 247,
+                            "name": "Identifier",
+                            "src": "1281:7:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "!",
+                              "prefix": true,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "exists",
+                                  "referencedDeclaration": 202,
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "struct UniversityRegistry.University storage ref"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 207,
+                                          "type": "mapping(address => struct UniversityRegistry.University storage ref)",
+                                          "value": "universities"
+                                        },
+                                        "id": 248,
+                                        "name": "Identifier",
+                                        "src": "1290:12:2"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 240,
+                                          "type": "address",
+                                          "value": "_universityAddress"
+                                        },
+                                        "id": 249,
+                                        "name": "Identifier",
+                                        "src": "1303:18:2"
+                                      }
+                                    ],
+                                    "id": 250,
+                                    "name": "IndexAccess",
+                                    "src": "1290:32:2"
+                                  }
+                                ],
+                                "id": 251,
+                                "name": "MemberAccess",
+                                "src": "1290:39:2"
+                              }
+                            ],
+                            "id": 252,
+                            "name": "UnaryOperation",
+                            "src": "1289:40:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "556e6976657273697465207a6174656e206b617969746c69",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Universite zaten kayitli\"",
+                              "value": "Universite zaten kayitli"
+                            },
+                            "id": 253,
+                            "name": "Literal",
+                            "src": "1331:26:2"
+                          }
+                        ],
+                        "id": 254,
+                        "name": "FunctionCall",
+                        "src": "1281:77:2"
+                      }
+                    ],
+                    "id": 255,
+                    "name": "ExpressionStatement",
+                    "src": "1281:77:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct UniversityRegistry.University storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct UniversityRegistry.University storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 207,
+                                  "type": "mapping(address => struct UniversityRegistry.University storage ref)",
+                                  "value": "universities"
+                                },
+                                "id": 256,
+                                "name": "Identifier",
+                                "src": "1369:12:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 240,
+                                  "type": "address",
+                                  "value": "_universityAddress"
+                                },
+                                "id": 257,
+                                "name": "Identifier",
+                                "src": "1382:18:2"
+                              }
+                            ],
+                            "id": 258,
+                            "name": "IndexAccess",
+                            "src": "1369:32:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                "name",
+                                "universityAddress",
+                                "exists"
+                              ],
+                              "type": "struct UniversityRegistry.University memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_bool",
+                                      "typeString": "bool"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 203,
+                                  "type": "type(struct UniversityRegistry.University storage pointer)",
+                                  "value": "University"
+                                },
+                                "id": 259,
+                                "name": "Identifier",
+                                "src": "1404:10:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 242,
+                                  "type": "string memory",
+                                  "value": "_name"
+                                },
+                                "id": 260,
+                                "name": "Identifier",
+                                "src": "1436:5:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 240,
+                                  "type": "address",
+                                  "value": "_universityAddress"
+                                },
+                                "id": 261,
+                                "name": "Identifier",
+                                "src": "1475:18:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "74727565",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "true"
+                                },
+                                "id": 262,
+                                "name": "Literal",
+                                "src": "1516:4:2"
+                              }
+                            ],
+                            "id": 263,
+                            "name": "FunctionCall",
+                            "src": "1404:128:2"
+                          }
+                        ],
+                        "id": 264,
+                        "name": "Assignment",
+                        "src": "1369:163:2"
+                      }
+                    ],
+                    "id": 265,
+                    "name": "ExpressionStatement",
+                    "src": "1369:163:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 213,
+                              "type": "function (address,string memory)",
+                              "value": "UniversityAdded"
+                            },
+                            "id": 266,
+                            "name": "Identifier",
+                            "src": "1548:15:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 240,
+                              "type": "address",
+                              "value": "_universityAddress"
+                            },
+                            "id": 267,
+                            "name": "Identifier",
+                            "src": "1564:18:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 242,
+                              "type": "string memory",
+                              "value": "_name"
+                            },
+                            "id": 268,
+                            "name": "Identifier",
+                            "src": "1584:5:2"
+                          }
+                        ],
+                        "id": 269,
+                        "name": "FunctionCall",
+                        "src": "1548:42:2"
+                      }
+                    ],
+                    "id": 270,
+                    "name": "EmitStatement",
+                    "src": "1543:47:2"
+                  }
+                ],
+                "id": 271,
+                "name": "Block",
+                "src": "1270:328:2"
+              }
+            ],
+            "id": 272,
+            "name": "FunctionDefinition",
+            "src": "1181:417:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "revokeUniversity",
+              "scope": 311,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_universityAddress",
+                      "scope": 297,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 273,
+                        "name": "ElementaryTypeName",
+                        "src": "1699:7:2"
+                      }
+                    ],
+                    "id": 274,
+                    "name": "VariableDeclaration",
+                    "src": "1699:26:2"
+                  }
+                ],
+                "id": 275,
+                "name": "ParameterList",
+                "src": "1698:28:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 278,
+                "name": "ParameterList",
+                "src": "1744:0:2"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 238,
+                      "type": "modifier ()",
+                      "value": "onlyOwner"
+                    },
+                    "id": 276,
+                    "name": "Identifier",
+                    "src": "1734:9:2"
+                  }
+                ],
+                "id": 277,
+                "name": "ModifierInvocation",
+                "src": "1734:9:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_075ca72d95468e6b64ef8adbaa7f54305b15973df062f08073bc9e7a632a4c53",
+                                  "typeString": "literal_string \"Universite kayitli degil\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                329,
+                                330
+                              ],
+                              "referencedDeclaration": 330,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 279,
+                            "name": "Identifier",
+                            "src": "1755:7:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "exists",
+                              "referencedDeclaration": 202,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct UniversityRegistry.University storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 207,
+                                      "type": "mapping(address => struct UniversityRegistry.University storage ref)",
+                                      "value": "universities"
+                                    },
+                                    "id": 280,
+                                    "name": "Identifier",
+                                    "src": "1763:12:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 274,
+                                      "type": "address",
+                                      "value": "_universityAddress"
+                                    },
+                                    "id": 281,
+                                    "name": "Identifier",
+                                    "src": "1776:18:2"
+                                  }
+                                ],
+                                "id": 282,
+                                "name": "IndexAccess",
+                                "src": "1763:32:2"
+                              }
+                            ],
+                            "id": 283,
+                            "name": "MemberAccess",
+                            "src": "1763:39:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "556e6976657273697465206b617969746c6920646567696c",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Universite kayitli degil\"",
+                              "value": "Universite kayitli degil"
+                            },
+                            "id": 284,
+                            "name": "Literal",
+                            "src": "1804:26:2"
+                          }
+                        ],
+                        "id": 285,
+                        "name": "FunctionCall",
+                        "src": "1755:76:2"
+                      }
+                    ],
+                    "id": 286,
+                    "name": "ExpressionStatement",
+                    "src": "1755:76:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "delete",
+                          "prefix": true,
+                          "type": "tuple()"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct UniversityRegistry.University storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 207,
+                                  "type": "mapping(address => struct UniversityRegistry.University storage ref)",
+                                  "value": "universities"
+                                },
+                                "id": 287,
+                                "name": "Identifier",
+                                "src": "1849:12:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 274,
+                                  "type": "address",
+                                  "value": "_universityAddress"
+                                },
+                                "id": 288,
+                                "name": "Identifier",
+                                "src": "1862:18:2"
+                              }
+                            ],
+                            "id": 289,
+                            "name": "IndexAccess",
+                            "src": "1849:32:2"
+                          }
+                        ],
+                        "id": 290,
+                        "name": "UnaryOperation",
+                        "src": "1842:39:2"
+                      }
+                    ],
+                    "id": 291,
+                    "name": "ExpressionStatement",
+                    "src": "1842:39:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 217,
+                              "type": "function (address)",
+                              "value": "UniversityRevoked"
+                            },
+                            "id": 292,
+                            "name": "Identifier",
+                            "src": "1897:17:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 274,
+                              "type": "address",
+                              "value": "_universityAddress"
+                            },
+                            "id": 293,
+                            "name": "Identifier",
+                            "src": "1915:18:2"
+                          }
+                        ],
+                        "id": 294,
+                        "name": "FunctionCall",
+                        "src": "1897:37:2"
+                      }
+                    ],
+                    "id": 295,
+                    "name": "EmitStatement",
+                    "src": "1892:42:2"
+                  }
+                ],
+                "id": 296,
+                "name": "Block",
+                "src": "1744:198:2"
+              }
+            ],
+            "id": 297,
+            "name": "FunctionDefinition",
+            "src": "1673:269:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "isUniversity",
+              "scope": 311,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_addr",
+                      "scope": 310,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 298,
+                        "name": "ElementaryTypeName",
+                        "src": "2047:7:2"
+                      }
+                    ],
+                    "id": 299,
+                    "name": "VariableDeclaration",
+                    "src": "2047:13:2"
+                  }
+                ],
+                "id": 300,
+                "name": "ParameterList",
+                "src": "2046:15:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 310,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 301,
+                        "name": "ElementaryTypeName",
+                        "src": "2082:4:2"
+                      }
+                    ],
+                    "id": 302,
+                    "name": "VariableDeclaration",
+                    "src": "2082:4:2"
+                  }
+                ],
+                "id": 303,
+                "name": "ParameterList",
+                "src": "2081:6:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 303
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "exists",
+                          "referencedDeclaration": 202,
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct UniversityRegistry.University storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 207,
+                                  "type": "mapping(address => struct UniversityRegistry.University storage ref)",
+                                  "value": "universities"
+                                },
+                                "id": 304,
+                                "name": "Identifier",
+                                "src": "2106:12:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 299,
+                                  "type": "address",
+                                  "value": "_addr"
+                                },
+                                "id": 305,
+                                "name": "Identifier",
+                                "src": "2119:5:2"
+                              }
+                            ],
+                            "id": 306,
+                            "name": "IndexAccess",
+                            "src": "2106:19:2"
+                          }
+                        ],
+                        "id": 307,
+                        "name": "MemberAccess",
+                        "src": "2106:26:2"
+                      }
+                    ],
+                    "id": 308,
+                    "name": "Return",
+                    "src": "2099:33:2"
+                  }
+                ],
+                "id": 309,
+                "name": "Block",
+                "src": "2088:52:2"
+              }
+            ],
+            "id": 310,
+            "name": "FunctionDefinition",
+            "src": "2025:115:2"
+          }
+        ],
+        "id": 311,
+        "name": "ContractDefinition",
+        "src": "242:1901:2"
+      }
+    ],
+    "id": 312,
+    "name": "SourceUnit",
+    "src": "33:2112:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x589d611c65D8F11234bB9D182C15cD75DECE2925",
+      "transactionHash": "0x66eb70402e605a5e9482d3009cf2f652477339d670501996a8137acb7485a3c5"
+    }
+  },
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2025-04-05T10:06:37.753Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

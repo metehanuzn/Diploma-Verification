@@ -53,7 +53,7 @@
   "sourceMap": "69:367:1:-;;;94:33;;;-1:-1:-1;;;;;;94:33:1;117:10;94:33;;;69:367;5:2:-1;;;;30:1;27;20:12;5:2;69:367:1;;;;;;;",
   "deployedSourceMap": "69:367:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;69:367:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;132:36;;;:::i;:::-;;;;;;;;;;;;;;;;94:33;;;:::i;:::-;;;;-1:-1:-1;;;;;94:33:1;;;;;;;;;;;;;;328:105;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;328:105:1;;:::i;:::-;;132:36;;;;:::o;94:33::-;;;-1:-1:-1;;;;;94:33:1;;:::o;328:105::-;234:5;;-1:-1:-1;;;;;234:5:1;220:10;:19;204:104;;;;-1:-1:-1;;;204:104:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;391:24;:36;328:105::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract Migrations {\r\n  address public owner = msg.sender;\r\n  uint public last_completed_migration;\r\n\r\n  modifier restricted() {\r\n    require(\r\n      msg.sender == owner,\r\n      \"This function is restricted to the contract's owner\"\r\n    );\r\n    _;\r\n  }\r\n\r\n  function setCompleted(uint completed) public restricted {\r\n    last_completed_migration = completed;\r\n  }\r\n}",
-  "sourcePath": "C:\\Users\\Said\\Desktop\\Bitirme Projesi\\contracts\\Migrations.sol",
+  "sourcePath": "C:\\Users\\Metehan\\Desktop\\DiplomaVerification\\Diploma-Verification\\contracts\\Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -915,12 +915,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xD5dD30d07fa08e42aCdE3eCba1d0299D09Be0fDe",
-      "transactionHash": "0x9e7a8c0448457de3d0e70993b5dd035bf20cd16fa9f56314de61f67230e6fabf"
+      "address": "0x44D6C6EbB5159Be632495529c1F136a292f873eD",
+      "transactionHash": "0xd5786cb6e8358e47973ddc3fc66ea09c9cda85a2a4362d906cf999ceb317bde3"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-04-05T12:46:32.373Z",
+  "updatedAt": "2025-04-12T17:43:11.232Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

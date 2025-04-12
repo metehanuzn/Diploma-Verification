@@ -23,18 +23,15 @@ function App() {
   async function loadBlockchainData() {
     if (window.ethereum) {
       try {
-        // Metamask ile bağlantı isteği
         await window.ethereum.request({ method: "eth_requestAccounts" });
         const web3 = new Web3(window.ethereum);
 
-        // Hesapları ve ağı çekelim
         const accounts = await web3.eth.getAccounts();
         setAccount(accounts[0]);
 
         const networkIdTemp = await web3.eth.net.getId();
         setNetworkId(networkIdTemp);
 
-        // UniversityRegistry
         const universityNetworkData = UniversityRegistryJSON.networks[networkIdTemp];
         if (universityNetworkData) {
           const uniRegistry = new web3.eth.Contract(
@@ -46,7 +43,6 @@ function App() {
           window.alert("UniversityRegistry kontratı bu ağda bulunamadı!");
         }
 
-        // DiplomaRegistry
         const diplomaNetworkData = DiplomaRegistryJSON.networks[networkIdTemp];
         if (diplomaNetworkData) {
           const dipRegistry = new web3.eth.Contract(

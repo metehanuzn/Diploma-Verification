@@ -19,7 +19,12 @@ contract DiplomaRegistry {
     mapping(uint => Diploma) public diplomas;
     uint public diplomaCount;
 
-    event DiplomaAdded(uint id,string studentName,string degree,string ipfsHash);
+    event DiplomaAdded(
+        uint id,
+        string studentName,
+        string degree,
+        string ipfsHash
+    );
     event DiplomaStatusChanged(uint id, bool isValid);
 
     modifier onlyUniversity() {
@@ -28,11 +33,23 @@ contract DiplomaRegistry {
         _;
     }
 
+    modifier onlyAdmin() {
+        require(
+            msg.sender == universityRegistry.owner(),
+            "Sadece admin islemi yapabilir"
+        );
+        _;
+    }
+
     constructor(address _universityRegistryAddress) public {
         universityRegistry = UniversityRegistry(_universityRegistryAddress);
     }
 
-    function addDiploma(string memory _studentName,string memory _degree,string memory _ipfsHash) public onlyUniversity {
+    function addDiploma(
+        string memory _studentName,
+        string memory _degree,
+        string memory _ipfsHash
+    ) public onlyUniversity {
         diplomaCount++;
         diplomas[diplomaCount] = Diploma({
             id: diplomaCount,
@@ -40,7 +57,28 @@ contract DiplomaRegistry {
             degree: _degree,
             isValid: true,
             ipfsHash: _ipfsHash,
-            registeredBy: msg.sender 
+            registeredBy: msg.sender
+        });
+        emit DiplomaAdded(diplomaCount, _studentName, _degree, _ipfsHash);
+    }
+
+    function addDiplomaFor(
+        address _universityAddress,
+        string memory _studentName,
+        string memory _degree,
+        string memory _ipfsHash
+    ) public onlyAdmin {
+        (bool exists, ) = universityRegistry.isUniversity(_universityAddress);
+        require(exists, "Universite tanimli degil");
+
+        diplomaCount++;
+        diplomas[diplomaCount] = Diploma({
+            id: diplomaCount,
+            studentName: _studentName,
+            degree: _degree,
+            isValid: true,
+            ipfsHash: _ipfsHash,
+            registeredBy: _universityAddress
         });
         emit DiplomaAdded(diplomaCount, _studentName, _degree, _ipfsHash);
     }
@@ -57,7 +95,9 @@ contract DiplomaRegistry {
         emit DiplomaStatusChanged(_id, true);
     }
 
-    function getDiplomasByUniversity(address universityAddr) public view returns (Diploma[] memory) {
+    function getDiplomasByUniversity(
+        address universityAddr
+    ) public view returns (Diploma[] memory) {
         uint count = 0;
         for (uint i = 1; i <= diplomaCount; i++) {
             if (diplomas[i].registeredBy == universityAddr) {

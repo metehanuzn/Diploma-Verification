@@ -1,7 +1,9 @@
-// src/App.js
+// frontend/src/App.js
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import { Container, Navbar, Nav, Tab, Row, Col, Accordion, Spinner, Card } from 'react-bootstrap';
+import {
+  Container, Navbar, Nav, Tab, Accordion, Spinner
+} from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 
 import UniversityRegistryJSON from './contracts/UniversityRegistry.json';
@@ -23,37 +25,70 @@ function App() {
   const [uniRegistry, setUniRegistry] = useState(null);
   const [dipRegistry, setDipRegistry] = useState(null);
   const [networkId, setNetworkId] = useState(null);
-  const [loadingChain, setLoadingChain] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => { init(); }, []);
+  useEffect(() => {
+    init();
+    if (window.ethereum && window.ethereum.on) {
+      window.ethereum.on('accountsChanged', (accounts) => {
+        setAccount(accounts[0] || '');
+        window.location.reload();
+      });
+      window.ethereum.on('chainChanged', () => {
+        window.location.reload();
+      });
+    }
+
+    return () => {
+      if (window.ethereum && window.ethereum.removeListener) {
+        window.ethereum.removeListener('accountsChanged', () => { });
+        window.ethereum.removeListener('chainChanged', () => { });
+      }
+    };
+  }, []);
   async function init() {
-    if (!window.ethereum) return toast.error('Metamask bulunamadı');
+    if (!window.ethereum) return toast.error('Metamask bulunamadi');
     const web3 = new Web3(window.ethereum);
+
     try {
       await window.ethereum.request({ method: 'eth_requestAccounts' });
       const [acct] = await web3.eth.getAccounts();
       setAccount(acct);
+
       const netId = await web3.eth.net.getId();
       setNetworkId(netId);
 
+      // UniversityRegistry instance
       const uData = UniversityRegistryJSON.networks[netId];
-      if (uData) setUniRegistry(new web3.eth.Contract(UniversityRegistryJSON.abi, uData.address));
-      else toast.warn('ÜniversiteRegistry yüklenemedi');
+      if (uData) {
+        const uReg = new web3.eth.Contract(UniversityRegistryJSON.abi, uData.address);
+        setUniRegistry(uReg);
+        const owner = await uReg.methods.owner().call();
+        setIsAdmin(owner.toLowerCase() === acct.toLowerCase());
+      } else {
+        toast.warn('UniversityRegistry bulunamadi');
+      }
 
+      // DiplomaRegistry instance
       const dData = DiplomaRegistryJSON.networks[netId];
-      if (dData) setDipRegistry(new web3.eth.Contract(DiplomaRegistryJSON.abi, dData.address));
-      else toast.warn('DiplomaRegistry yüklenemedi');
-    } catch (e) {
-      toast.error('Blockchain hatası');
-      console.error(e);
+      if (dData) {
+        setDipRegistry(new web3.eth.Contract(DiplomaRegistryJSON.abi, dData.address));
+      } else {
+        toast.warn('DiplomaRegistry bulunamadi');
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error('Blockchain baglanti hatasi');
     }
-    setLoadingChain(false);
+
+    setLoading(false);
   }
 
-  if (loadingChain) {
+  if (loading) {
     return (
       <div className="text-center mt-5">
-        <Spinner animation="border" /><p>Blockchain’e bağlanılıyor…</p>
+        <Spinner animation="border" /><p>Yukleniyor...</p>
       </div>
     );
   }
@@ -78,47 +113,64 @@ function App() {
         <ToastContainer position="top-right" autoClose={3000} />
         <Tab.Container defaultActiveKey="uni">
           <Nav variant="tabs">
-            <Nav.Item><Nav.Link eventKey="uni">Üniversite İşlemleri</Nav.Link></Nav.Item>
-            <Nav.Item><Nav.Link eventKey="dip">Diploma İşlemleri</Nav.Link></Nav.Item>
+            {isAdmin && (
+              <Nav.Item>
+                <Nav.Link eventKey="uni">Üniversite İşlemleri</Nav.Link>
+              </Nav.Item>
+            )}
+            <Nav.Item>
+              <Nav.Link eventKey="dip">Diploma İşlemleri</Nav.Link>
+            </Nav.Item>
           </Nav>
+
           <Tab.Content className="mt-3">
-            <Tab.Pane eventKey="uni">
-              <Accordion defaultActiveKey="0">
-                <Accordion.Item eventKey="0">
-                  <Accordion.Header>Üniversite Ekle</Accordion.Header>
-                  <Accordion.Body>{uniRegistry && <UniversityForm contract={uniRegistry} account={account} />}</Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="1">
-                  <Accordion.Header>Üniversiteyi Kaldır</Accordion.Header>
-                  <Accordion.Body>{uniRegistry && <RevokeUniversityForm contract={uniRegistry} account={account} />}</Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="2">
-                  <Accordion.Header>Üniversite Sorgulama</Accordion.Header>
-                  <Accordion.Body>{uniRegistry && <IsUniversity contract={uniRegistry} account={account} />}</Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-            </Tab.Pane>
+            {isAdmin && (
+              <Tab.Pane eventKey="uni">
+                <Accordion flush>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header>Üniversite Ekle</Accordion.Header>
+                    <Accordion.Body>
+                      <UniversityForm contract={uniRegistry} account={account} />
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="1">
+                    <Accordion.Header>Üniversiteyi Kaldır</Accordion.Header>
+                    <Accordion.Body>
+                      <RevokeUniversityForm contract={uniRegistry} account={account} />
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey="2">
+                    <Accordion.Header>Üniversite Sorgulama</Accordion.Header>
+                    <Accordion.Body>
+                      <IsUniversity contract={uniRegistry} account={account} />
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+              </Tab.Pane>
+            )}
 
             <Tab.Pane eventKey="dip">
-              <Accordion defaultActiveKey="0" flush>
+              <Accordion flush>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Diploma Ekle</Accordion.Header>
                   <Accordion.Body>
-                    {dipRegistry && <DiplomaForm contract={dipRegistry} account={account} />}
+                    <DiplomaForm
+                      contract={dipRegistry}
+                      account={account}
+                      isAdmin={isAdmin}
+                    />
                   </Accordion.Body>
                 </Accordion.Item>
-
                 <Accordion.Item eventKey="1">
                   <Accordion.Header>Diploma Onaylama</Accordion.Header>
                   <Accordion.Body>
-                    {dipRegistry && <ValidateDiploma contract={dipRegistry} account={account} />}
+                    <ValidateDiploma contract={dipRegistry} account={account} />
                   </Accordion.Body>
                 </Accordion.Item>
-
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>Sistemdeki Diplomalar</Accordion.Header>
                   <Accordion.Body>
-                    {dipRegistry && <ListDiplomas contract={dipRegistry} account={account} />}
+                    <ListDiplomas contract={dipRegistry} account={account} />
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>

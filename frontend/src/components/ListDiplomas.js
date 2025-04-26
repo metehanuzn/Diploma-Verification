@@ -1,61 +1,64 @@
+// frontend/src/components/ListDiplomas.js
 import React, { useState } from "react";
+import { Card, Table, Button, Spinner } from "react-bootstrap";
+import { toast } from "react-toastify";
 
-function ListDiplomas({ contract, account }) {
-  const [diplomas, setDiplomas] = useState([]);
-  const [loading, setLoading] = useState(false);
+export default function ListDiplomas({ contract, account }) {
+  const [dips, setDips] = useState([]);
+  const [busy, setBusy] = useState(false);
 
-  async function handleListDiplomas() {
-    if (!contract) {
-      alert("Kontrat yüklenemedi!");
-      return;
-    }
-    setLoading(true);
+  async function handleList() {
+    if (!contract) return toast.error("Kontrat yüklenemedi!");
+    setBusy(true);
     try {
-      // Sadece aktif üniversitenin eklediği diplomaları getiriyoruz.
-      const diplomasArray = await contract.methods.getDiplomasByUniversity(account).call({ from: account });
-      setDiplomas(diplomasArray);
-    } catch (error) {
-      console.error("Diplomaları listeleme hatası:", error);
-      console.log(Object.keys(contract.methods));
-      alert("Diplomaları listeleme sırasında hata oluştu!");
+      const arr = await contract.methods.getDiplomasByUniversity(account).call({ from: account });
+      setDips(arr);
+      if (arr.length === 0) toast.info("Hiç diploma bulunamadı.");
+    } catch (err) {
+      console.error(err);
+      toast.error("Diplomalar listelenemedi!");
     }
-    setLoading(false);
+    setBusy(false);
   }
 
   return (
-    <div className="mb-4">
-      <h3>Sistemdeki Diplomalar</h3>
-      <button onClick={handleListDiplomas} className="btn btn-secondary mb-3">
-        {loading ? "Yükleniyor..." : "Diplomaları Listele"}
-      </button>
-      {diplomas.length > 0 ? (
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Öğrenci Adı</th>
-              <th>Derece</th>
-              <th>Geçerlilik</th>
-              <th>IPFS Hash</th>
-            </tr>
-          </thead>
-          <tbody>
-            {diplomas.map((dip, index) => (
-              <tr key={index}>
-                <td>{dip.id}</td>
-                <td>{dip.studentName}</td>
-                <td>{dip.degree}</td>
-                <td>{dip.isValid ? "Geçerli" : "Geçersiz"}</td>
-                <td>{dip.ipfsHash}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>Diploma bulunamadı.</p>
-      )}
-    </div>
+    <Card className="mb-4">
+      <Card.Header>Sistemdeki Diplomalar</Card.Header>
+      <Card.Body>
+        <Button variant="secondary" onClick={handleList} disabled={busy}>
+          {busy ? <><Spinner animation="border" size="sm" /> Yükleniyor</> : "Diplomaları Listele"}
+        </Button>
+
+        {dips.length > 0 && (
+          <div className="table-responsive mt-3">
+            <Table bordered hover>
+              <thead>
+                <tr>
+                  <th>ID</th><th>Öğrenci</th><th>Derece</th><th>Geçerlilik</th><th>IPFS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {dips.map((d,i) => (
+                  <tr key={i}>
+                    <td>{d.id}</td>
+                    <td>{d.studentName}</td>
+                    <td>{d.degree}</td>
+                    <td>{d.isValid ? "✅" : "❌"}</td>
+                    <td>
+                      <a 
+                        href={`https://ipfs.io/ipfs/${d.ipfsHash}`} 
+                        target="_blank" rel="noopener noreferrer"
+                      >
+                        {d.ipfsHash.slice(0, 10)}…
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        )}
+      </Card.Body>
+    </Card>
   );
 }
-
-export default ListDiplomas;

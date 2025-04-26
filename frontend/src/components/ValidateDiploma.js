@@ -1,50 +1,47 @@
+// frontend/src/components/ValidateDiploma.js
 import React, { useState } from "react";
+import { Card, Form, Button, Spinner } from "react-bootstrap";
+import { toast } from "react-toastify";
 
-function ValidateDiplomaForm({ contract, account }) {
-  const [diplomaId, setDiplomaId] = useState("");
+export default function ValidateDiploma({ contract, account }) {
+  const [id, setId] = useState("");
+  const [busy, setBusy] = useState(false);
 
-  async function handleValidate(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (!contract) {
-      alert("Kontrat yüklenemedi!");
-      return;
-    }
-
-    if (!diplomaId) {
-      alert("Lütfen diploma ID girin!");
-      return;
-    }
-
+    if (!contract) return toast.error("Kontrat yüklenemedi!");
+    setBusy(true);
     try {
-      await contract.methods.validateDiploma(diplomaId).send({ from: account });
-      alert("Diploma başarıyla onaylandı!");
-    } catch (error) {
-      console.error("Diploma onaylama hatası:", error);
-      alert("Diploma onaylama işlemi sırasında hata oluştu!");
+      await contract.methods.validateDiploma(id).send({ from: account });
+      toast.success("Diploma onaylandı!");
+      setId("");
+    } catch (err) {
+      console.error(err);
+      toast.error("Onaylama sırasında hata oluştu!");
     }
+    setBusy(false);
   }
 
   return (
-    <div className="mb-4">
-      <h3>Diploma Onaylama</h3>
-      <form onSubmit={handleValidate}>
-        <div className="mb-2">
-          <label>Diploma ID:</label>
-          <input
-            type="number"
-            className="form-control"
-            value={diplomaId}
-            onChange={(e) => setDiplomaId(e.target.value)}
-            placeholder="Diploma ID girin"
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-success">
-          Onayla
-        </button>
-      </form>
-    </div>
+    <Card className="mb-4">
+      <Card.Header>Diploma Onaylama</Card.Header>
+      <Card.Body>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Diploma ID</Form.Label>
+            <Form.Control
+              type="number"
+              value={id}
+              onChange={e => setId(e.target.value)}
+              placeholder="ID girin"
+              required
+            />
+          </Form.Group>
+          <Button variant="success" type="submit" disabled={busy}>
+            {busy ? <><Spinner animation="border" size="sm" /> Onayla</> : "Onayla"}
+          </Button>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 }
-
-export default ValidateDiplomaForm;

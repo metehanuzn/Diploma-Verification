@@ -1,59 +1,54 @@
+// frontend/src/components/IsUniversity.js
 import React, { useState } from "react";
+import { Card, Form, Button, Spinner } from "react-bootstrap";
+import { toast } from "react-toastify";
 
-function IsUniversity({ contract, account }) {
-  const [queryAddress, setQueryAddress] = useState("");
+export default function IsUniversity({ contract, account }) {
+  const [addr, setAddr] = useState("");
   const [result, setResult] = useState(null);
+  const [busy, setBusy] = useState(false);
 
   async function handleCheck(e) {
     e.preventDefault();
-    if (!contract) {
-      alert("Kontrat yüklenemedi!");
-      return;
-    }
-
+    if (!contract) return toast.error("Kontrat yüklenemedi!");
+    setBusy(true);
     try {
-        const res = await contract.methods.isUniversity(queryAddress).call({ from: account });
-        console.log("Dönen sonuç:", res);
-        // Eğer dönüş dizi şeklinde gelmiyorsa, res nesnesinin yapısını inceleyin.
-        setResult({ exists: res[0], name: res[1] });
-      } catch (error) {
-        console.error("Sorgulama hatası:", error);
-        alert("Sorgulama sırasında hata oluştu! Detaylar için konsolu kontrol edin.");
-      }
+      const res = await contract.methods.isUniversity(addr).call({ from: account });
+      setResult({ exists: res[0], name: res[1] });
+    } catch (err) {
+      console.error(err);
+      toast.error("Sorgulama sırasında hata oluştu!");
+    }
+    setBusy(false);
   }
 
   return (
-    <div className="mb-4">
-      <h3>Üniversite Sorgulama</h3>
-      <form onSubmit={handleCheck}>
-        <div className="mb-2">
-          <label>Adres:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={queryAddress}
-            onChange={(e) => setQueryAddress(e.target.value)}
-            placeholder="Sorgulanacak adresi girin"
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-info">
-          Sorgula
-        </button>
-      </form>
-      {result !== null && (
-        <div className="mt-2">
-          {result.exists ? (
-            <p>
-              {queryAddress} adresi kayıtlı bir üniversite. Üniversite Adı: {result.name}
-            </p>
-          ) : (
-            <p>{queryAddress} adresi kayıtlı bir üniversite değil.</p>
-          )}
-        </div>
-      )}
-    </div>
+    <Card className="mb-4">
+      <Card.Header>Üniversite Sorgulama</Card.Header>
+      <Card.Body>
+        <Form onSubmit={handleCheck}>
+          <Form.Group className="mb-3">
+            <Form.Label>Adres</Form.Label>
+            <Form.Control
+              value={addr}
+              onChange={e => setAddr(e.target.value)}
+              placeholder="0x..."
+              required
+            />
+          </Form.Group>
+          <Button variant="info" type="submit" disabled={busy}>
+            {busy ? <><Spinner animation="border" size="sm" /> Sorgula</> : "Sorgula"}
+          </Button>
+        </Form>
+        {result && (
+          <div className="mt-3">
+            {result.exists
+              ? <p>✅ Bu adres <strong>{result.name}</strong> üniversitesine ait.</p>
+              : <p>❌ Kayıtlı bir üniversite değil.</p>
+            }
+          </div>
+        )}
+      </Card.Body>
+    </Card>
   );
 }
-
-export default IsUniversity;

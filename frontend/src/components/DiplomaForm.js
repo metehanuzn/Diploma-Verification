@@ -1,63 +1,63 @@
+// frontend/src/components/DiplomaForm.js
 import React, { useState } from "react";
+import { Card, Form, Button, Spinner } from "react-bootstrap";
+import { toast } from "react-toastify";
 
-function DiplomaForm({ contract, account }) {
-    const [studentName, setStudentName] = useState("");
+export default function DiplomaForm({ contract, account }) {
+    const [student, setStudent] = useState("");
     const [degree, setDegree] = useState("");
-    const [ipfsHash, setIpfsHash] = useState("");
+    const [hash, setHash] = useState("");
+    const [busy, setBusy] = useState(false);
 
-    async function handleAddDiploma(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        if (!contract) return alert("Kontrat yüklenemedi!");
-
+        if (!contract) return toast.error("Kontrat yüklenemedi!");
+        setBusy(true);
         try {
-            await contract.methods
-                .addDiploma(studentName, degree, ipfsHash)
-                .send({ from: account });
-            alert("Diploma başarıyla eklendi!");
-        } catch (error) {
-            console.error(error);
-            alert("Diploma ekleme başarısız!");
+            await contract.methods.addDiploma(student, degree, hash).send({ from: account });
+            toast.success("Diploma başarıyla eklendi!");
+            setStudent(""); setDegree(""); setHash("");
+        } catch (err) {
+            console.error(err);
+            toast.error("Diploma ekleme başarısız!");
         }
+        setBusy(false);
     }
 
     return (
-        <div>
-            <h3>Diploma Ekle</h3>
-            <form onSubmit={handleAddDiploma}>
-                <div className="mb-2">
-                    <label>Öğrenci Adı:</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        value={studentName}
-                        onChange={(e) => setStudentName(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="mb-2">
-                    <label>Derece (degree):</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        value={degree}
-                        onChange={(e) => setDegree(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="mb-2">
-                    <label>IPFS Hash:</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        value={ipfsHash}
-                        onChange={(e) => setIpfsHash(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary">Ekle</button>
-            </form>
-        </div>
+        <Card className="mb-4">
+            <Card.Header>Diploma Ekle</Card.Header>
+            <Card.Body>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Öğrenci Adı</Form.Label>
+                        <Form.Control
+                            value={student}
+                            onChange={e => setStudent(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Derece (Degree)</Form.Label>
+                        <Form.Control
+                            value={degree}
+                            onChange={e => setDegree(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>IPFS Hash</Form.Label>
+                        <Form.Control
+                            value={hash}
+                            onChange={e => setHash(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
+                    <Button variant="primary" type="submit" disabled={busy}>
+                        {busy ? <><Spinner animation="border" size="sm" /> Ekle</> : "Ekle"}
+                    </Button>
+                </Form>
+            </Card.Body>
+        </Card>
     );
 }
-
-export default DiplomaForm;

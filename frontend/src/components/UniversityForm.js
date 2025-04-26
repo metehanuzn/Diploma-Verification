@@ -1,54 +1,55 @@
+// frontend/src/components/UniversityForm.js
 import React, { useState } from "react";
+import { Card, Form, Button, Spinner } from "react-bootstrap";
+import { toast } from "react-toastify";
 
-function UniversityForm({ contract, account }) {
-  const [universityName, setUniversityName] = useState("");
-  const [universityAddress, setUniversityAddress] = useState("");
+export default function UniversityForm({ contract, account }) {
+  const [name, setName] = useState("");
+  const [addr, setAddr] = useState("");
+  const [busy, setBusy] = useState(false);
 
-  async function handleAddUniversity(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (!contract) return alert("Kontrat yüklenemedi!");
-
+    if (!contract) return toast.error("Kontrat yüklenemedi!");
+    setBusy(true);
     try {
-      await contract.methods
-        .addUniversity(universityAddress, universityName)
-        .send({ from: account });
-      alert("Üniversite başarıyla eklendi!");
-    } catch (error) {
-      console.error(error);
-      alert("Üniversite ekleme başarısız!");
+      await contract.methods.addUniversity(addr, name).send({ from: account });
+      toast.success("Üniversite başarıyla eklendi!");
+      setName("");
+      setAddr("");
+    } catch (err) {
+      console.error(err);
+      toast.error("Üniversite ekleme başarısız!");
     }
+    setBusy(false);
   }
 
   return (
-    <div>
-      <h3>Üniversite Ekle</h3>
-      <form onSubmit={handleAddUniversity}>
-        <div className="mb-2">
-          <label>Üniversite Adı:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={universityName}
-            onChange={(e) => setUniversityName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-2">
-          <label>Üniversite Adresi:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={universityAddress}
-            onChange={(e) => setUniversityAddress(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Ekle
-        </button>
-      </form>
-    </div>
+    <Card className="mb-4">
+      <Card.Header>Üniversite Ekle</Card.Header>
+      <Card.Body>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Üniversite Adı</Form.Label>
+            <Form.Control
+              value={name}
+              onChange={e => setName(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Üniversite Adresi</Form.Label>
+            <Form.Control
+              value={addr}
+              onChange={e => setAddr(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" disabled={busy}>
+            {busy ? <><Spinner animation="border" size="sm" /> Ekle</> : "Ekle"}
+          </Button>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 }
-
-export default UniversityForm;

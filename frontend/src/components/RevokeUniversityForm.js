@@ -14,6 +14,7 @@ export default function RevokeUniversityForm({ contract, account }) {
     try {
       await contract.methods.revokeUniversity(addr).send({ from: account });
       toast.success("Üniversite başarıyla kaldırıldı!");
+      window.location.reload();
       setAddr("");
     } catch (err) {
       console.error(err);

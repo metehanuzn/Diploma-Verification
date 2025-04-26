@@ -41,6 +41,20 @@ contract DiplomaRegistry {
         _;
     }
 
+    modifier onlyAdminOrIssuer(uint _id) {
+        if (msg.sender == universityRegistry.owner()) {
+            _;
+            return;
+        }
+        (bool uniExists, ) = universityRegistry.isUniversity(msg.sender);
+        require(uniExists, "Sadece kayitli universite bu islemi yapabilir");
+        require(
+            diplomas[_id].registeredBy == msg.sender,
+            "Bu diploma yetkiniz disinda"
+        );
+        _;
+    }
+
     constructor(address _universityRegistryAddress) public {
         universityRegistry = UniversityRegistry(_universityRegistryAddress);
     }
@@ -83,13 +97,13 @@ contract DiplomaRegistry {
         emit DiplomaAdded(diplomaCount, _studentName, _degree, _ipfsHash);
     }
 
-    function invalidateDiploma(uint _id) public onlyUniversity {
+    function invalidateDiploma(uint _id) public onlyAdminOrIssuer(_id) {
         require(_id > 0 && _id <= diplomaCount, "Diploma bulunamadi");
         diplomas[_id].isValid = false;
         emit DiplomaStatusChanged(_id, false);
     }
 
-    function validateDiploma(uint _id) public onlyUniversity {
+    function validateDiploma(uint _id) public onlyAdminOrIssuer(_id) {
         require(_id > 0 && _id <= diplomaCount, "Diploma bulunamadi");
         diplomas[_id].isValid = true;
         emit DiplomaStatusChanged(_id, true);

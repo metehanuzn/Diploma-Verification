@@ -13,8 +13,9 @@ import UniversityForm from "./components/UniversityForm";
 import RevokeUniversityForm from "./components/RevokeUniversityForm";
 import IsUniversity from "./components/IsUniversity";
 import DiplomaForm from "./components/DiplomaForm";
-import ValidateDiploma from "./components/ValidateDiploma";
+import DiplomaOperations from "./components/DiplomaOperations";
 import ListDiplomas from "./components/ListDiplomas";
+import UniversityDiplomaGrid from "./components/UniversityDiplomaGrid";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,6 +27,7 @@ function App() {
   const [dipRegistry, setDipRegistry] = useState(null);
   const [networkId, setNetworkId] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [uniName, setUniName] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -39,14 +41,14 @@ function App() {
         window.location.reload();
       });
     }
-
     return () => {
       if (window.ethereum && window.ethereum.removeListener) {
-        window.ethereum.removeListener('accountsChanged', () => { });
-        window.ethereum.removeListener('chainChanged', () => { });
+        window.ethereum.removeListener('accountsChanged', () => {});
+        window.ethereum.removeListener('chainChanged', () => {});
       }
     };
   }, []);
+
   async function init() {
     if (!window.ethereum) return toast.error('Metamask bulunamadi');
     const web3 = new Web3(window.ethereum);
@@ -59,18 +61,21 @@ function App() {
       const netId = await web3.eth.net.getId();
       setNetworkId(netId);
 
-      // UniversityRegistry instance
       const uData = UniversityRegistryJSON.networks[netId];
       if (uData) {
         const uReg = new web3.eth.Contract(UniversityRegistryJSON.abi, uData.address);
         setUniRegistry(uReg);
         const owner = await uReg.methods.owner().call();
-        setIsAdmin(owner.toLowerCase() === acct.toLowerCase());
+        const adminFlag = owner.toLowerCase() === acct.toLowerCase();
+        setIsAdmin(adminFlag);
+        if (!adminFlag) {
+          const res = await uReg.methods.isUniversity(acct).call({ from: acct });
+          if (res[0]) setUniName(res[1]);
+        }
       } else {
         toast.warn('UniversityRegistry bulunamadi');
       }
 
-      // DiplomaRegistry instance
       const dData = DiplomaRegistryJSON.networks[netId];
       if (dData) {
         setDipRegistry(new web3.eth.Contract(DiplomaRegistryJSON.abi, dData.address));
@@ -97,7 +102,15 @@ function App() {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>🎓 Diploma Sistemi</Navbar.Brand>
+          <Navbar.Brand>
+            🎓 Diploma Sistemi
+            {isAdmin
+              ? ' - Yönetici'
+              : uniName
+                ? ` - ${uniName}`
+                : ''
+            }
+          </Navbar.Brand>
           <Nav className="ms-auto">
             <Navbar.Text className="text-light me-4">
               Hesap: {account}
@@ -111,7 +124,7 @@ function App() {
 
       <Container className="mt-4">
         <ToastContainer position="top-right" autoClose={3000} />
-        <Tab.Container defaultActiveKey="uni">
+        <Tab.Container defaultActiveKey={isAdmin ? 'uni' : 'dip'}>
           <Nav variant="tabs">
             {isAdmin && (
               <Nav.Item>
@@ -154,23 +167,30 @@ function App() {
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Diploma Ekle</Accordion.Header>
                   <Accordion.Body>
-                    <DiplomaForm
-                      contract={dipRegistry}
-                      account={account}
-                      isAdmin={isAdmin}
-                    />
+                    {dipRegistry && <DiplomaForm contract={dipRegistry} account={account} isAdmin={isAdmin} />}
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
-                  <Accordion.Header>Diploma Onaylama</Accordion.Header>
+                  <Accordion.Header>Diploma İşlemleri</Accordion.Header>
                   <Accordion.Body>
-                    <ValidateDiploma contract={dipRegistry} account={account} />
+                    {dipRegistry && (
+                      <DiplomaOperations contract={dipRegistry} account={account} />
+                    )}
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>Sistemdeki Diplomalar</Accordion.Header>
                   <Accordion.Body>
-                    <ListDiplomas contract={dipRegistry} account={account} />
+                    {dipRegistry && (
+                      isAdmin
+                        ? <UniversityDiplomaGrid
+                            uniContract={uniRegistry}
+                            dipContract={dipRegistry}
+                            account={account}
+                            isAdmin={isAdmin}
+                          />
+                        : <ListDiplomas contract={dipRegistry} account={account} />
+                    )}
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
